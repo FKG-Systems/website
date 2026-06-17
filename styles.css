@@ -44,7 +44,45 @@ img { max-width: 100%; display: block; }
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(18px);
 }
-.brand img { width: min(230px, 44vw); height: auto; }
+.text-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 10px 0 0;
+  border-right: 2px solid var(--red);
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 950;
+  letter-spacing: -.09em;
+  color: #fff;
+  text-transform: uppercase;
+}
+.brand-stack {
+  display: grid;
+  gap: 2px;
+  line-height: 1;
+}
+.brand-stack strong {
+  font-size: 17px;
+  font-weight: 950;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.brand-stack em {
+  font-style: normal;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(244,247,251,.66);
+}
 nav { display: flex; gap: clamp(16px, 3vw, 36px); }
 nav a,
 .kicker,
@@ -282,17 +320,25 @@ h3 {
 }
 .logo-row img {
   width: 100%;
-  height: 110px;
+  height: 118px;
   object-fit: contain;
-  padding: 22px;
-  background: #fff;
-  border: 1px solid var(--line-dark);
+  padding: 24px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.96) 0 48%, rgba(22,25,31,.96) 48% 100%);
+  border: 1px solid rgba(3,3,3,.18);
   border-radius: 20px;
-  filter: grayscale(1);
-  opacity: .82;
-  transition: filter .2s ease, opacity .2s ease, transform .2s ease;
+  box-shadow: 0 16px 42px rgba(17,19,23,.08), inset 0 0 0 1px rgba(255,255,255,.26);
+  filter:
+    drop-shadow(0 1px 1px rgba(0,0,0,.95))
+    drop-shadow(0 0 10px rgba(255,255,255,.52));
+  opacity: .96;
+  transition: opacity .2s ease, transform .2s ease, box-shadow .2s ease;
 }
-.logo-row img:hover { filter: grayscale(0); opacity: 1; transform: translateY(-3px); }
+.logo-row img:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+  box-shadow: 0 20px 56px rgba(17,19,23,.14), inset 0 0 0 1px rgba(255,255,255,.34);
+}
 
 .contact { min-height: 78vh; display: grid; place-items: center; padding: 120px 20px; }
 .contact-card {
@@ -341,7 +387,9 @@ footer {
 
 @media (max-width: 640px) {
   .site-header { height: 70px; }
-  .brand img { width: 185px; }
+  .brand-mark { font-size: 26px; height: 32px; }
+  .brand-stack strong { font-size: 14px; }
+  .brand-stack em { font-size: 8px; letter-spacing: .14em; }
   h1 { font-size: clamp(44px, 16vw, 68px); }
   .hero-grid { padding-top: 112px; }
   .cards, .steps, .logo-row, .lab-band { grid-template-columns: 1fr; }
